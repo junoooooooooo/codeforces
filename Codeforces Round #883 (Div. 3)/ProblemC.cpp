@@ -1,9 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
+#define ll long long
 #define X first
 #define Y second
 
-bool cmp(pair<int, int> a, pair<int, int> b) {
+bool cmp(pair<int, ll> a, pair<int, ll> b) {
   if(a.X != b.X) return a.X > b.X;
   return a.Y < b.Y;
 }
@@ -14,11 +15,11 @@ void solve() {
   while(t--) {
     int n, m, h;
     cin >> n >> m >> h;
-    int my_pt, my_pl;
-    vector<pair<int, int>> pv;
+    long long my_pt, my_pl;
+    vector<pair<int, long long>> pv;
     for(int i = 0; i < n; i ++) {
-      int pnt = 0, plt = 0;
-      multiset<int> ms;
+      long long pnt = 0, plt = 0;
+      multiset<long long> ms;
       for(int i = 0; i < m; i ++) {
         int t;
         cin >> t;
@@ -29,7 +30,7 @@ void solve() {
         hs += e;
         if(hs > h) break;
         pnt += 1;
-        plt += hs;
+        plt += 1ll * hs;
       }
       pv.push_back({pnt, plt});
       if(i == 0) {
@@ -41,10 +42,10 @@ void solve() {
     sort(pv.begin(), pv.end(), cmp);
     for(int i = 0; i < pv.size(); i ++) {
       if(pv[i].X == my_pt && pv[i].Y == my_pl) {
-        //cout << i + 1 << '\n';
-        //break;
+        cout << i + 1 << '\n';
+        break;
       }
-      cout << pv[i].X << ' ' << pv[i].Y << '\n';
+//      cout << pv[i].X << ' ' << pv[i].Y << '\n';
     }
 
   }
